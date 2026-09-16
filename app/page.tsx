@@ -137,9 +137,12 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-navy-900">
         {/* Background gradients */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute -left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-fire-600/10 blur-3xl" />
-          <div className="absolute -right-1/4 bottom-0 h-[500px] w-[500px] rounded-full bg-fire-500/5 blur-3xl" />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-900 to-navy-950" />
+          <img
+            src="/images/services/fire-suppression.jpg"
+            alt=""
+            className="h-full w-full object-cover opacity-15"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-900/95 via-navy-900/90 to-navy-950/95" />
         </div>
 
         {/* Subtle grid overlay */}
@@ -294,30 +297,34 @@ export default function HomePage() {
           />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((cat) => {
-              const IconComponent = iconMap[cat.icon] ?? Shield;
-              return (
-                <Link
-                  key={cat.slug}
-                  href={`/products/${cat.slug}`}
-                  className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-fire-300 hover:shadow-lg"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-white transition-colors group-hover:bg-fire-600">
-                    <IconComponent className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-navy-900">
+            {featuredProducts.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/products/${cat.slug}`}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-fire-300 hover:shadow-lg"
+              >
+                <div className="relative h-36 overflow-hidden bg-slate-100">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-navy-900">
                     {cat.name}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 line-clamp-3">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 line-clamp-2">
                     {cat.shortDescription}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fire-600 transition-colors group-hover:text-fire-700">
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-fire-600 transition-colors group-hover:text-fire-700">
                     View Products
                     <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
 
           <div className="mt-10 text-center">

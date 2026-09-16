@@ -30,7 +30,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Alarm Systems",
     shortDescription: "Analogue addressable, conventional and extinguishant control panels — from small to large installations.",
     description: "Fire Safe offers a powerful and sophisticated range of Analogue Addressable, Conventional and Extinguishant Control Panels available intelligent and technically robust. The wide range ensures to meet the current and future needs of customers' specifications from small to larger buildings and installations.",
-    image: "/products/fire-alarm-system.jpg",
+        image: "/images/services/fire-detection.jpg",
     icon: "Bell",
   },
   {
@@ -38,7 +38,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Pumps",
     shortDescription: "UL/FM listed fire pumps — end suction, vertical turbine, diesel and electric driven, NFPA 20 compliant.",
     description: "Fire Safe supplies and installs UL/FM listed fire pump systems including end suction pumps, vertical turbine pumps, diesel engine driven pumps and electric motor driven pumps with complete controllers and jockey pumps.",
-    image: "/products/fire-pump.jpg",
+        image: "/images/services/fire-pumps.jpg",
     icon: "Zap",
   },
   {
@@ -46,7 +46,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Suppression Systems",
     shortDescription: "FM-200, Novec 1230, CO2 and clean agent suppression systems — residue-free, safe for occupied spaces.",
     description: "Advanced fire suppression systems including FM-200, Novec 1230 and CO2 flooding systems. Clean agent suppression that is fast-acting, non-conductive and residue-free — ideal for data centres, control rooms and occupied spaces.",
-    image: "/products/fire-suppression.jpg",
+        image: "/images/services/fire-suppression.jpg",
     icon: "Droplets",
   },
   {
@@ -54,7 +54,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Extinguishers",
     shortDescription: "Portable and trolley fire extinguishers — ABC Powder, AFFF Foam, CO2, CE marked and refillable.",
     description: "Fire Safe fire extinguishers are best in class — CE marked, pressure-tested and refillable. Available as portable and wheeled/trolley types for various fire risks including Class A, B, C and electrical fires.",
-    image: "/products/fire-extinguisher.jpg",
+        image: "/images/services/fire-extinguishers.jpg",
     icon: "Flame",
   },
   {
@@ -62,7 +62,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Rated Doors",
     shortDescription: "Fire-rated steel doors (1 HR, 1.5 HR, 3 HR) — single and double leaf, UL listed, custom sizes up to 3m x 3m.",
     description: "Fire Safe supplies UL listed fire-rated steel doors with various ratings (1 HR, 1.5 HR, 3 HR). Available as single and pairs swinging types with custom sizes up to 3 Meter x 3 Meter. Core materials include Honey Comb, Ceramic Fiber or Fiber Glass.",
-    image: "/products/fire-door.jpg",
+        image: "/images/services/fire-doors.jpg",
     icon: "Shield",
   },
   {
@@ -70,7 +70,7 @@ export const productCategories: ProductCategory[] = [
     name: "Sprinkler Systems",
     shortDescription: "Automatic sprinkler heads and complete sprinkler system components for residential, commercial and industrial use.",
     description: "Complete sprinkler system components including pendent, upright, sidewall and concealed sprinkler heads. Designed for residential, commercial and high-hazard occupancies per NFPA 13 standards.",
-    image: "/products/sprinkler.jpg",
+        image: "/images/services/sprinkler.jpg",
     icon: "Droplets",
   },
   {
@@ -78,7 +78,7 @@ export const productCategories: ProductCategory[] = [
     name: "Fire Hose & Fittings",
     shortDescription: "Fire hose reels, landing valves, hydrant valves, gauges and hydraulic fittings for fire hydrant systems.",
     description: "Complete range of fire hose and fittings including hose reels, landing valves, hydrant valves, pressure gauges, flow switches and hydraulic fittings for fire hydrant and sprinkler systems.",
-    image: "/products/fire-hose.jpg",
+        image: "/images/services/fire-pumps.jpg",
     icon: "Cable",
   },
   {
@@ -86,7 +86,7 @@ export const productCategories: ProductCategory[] = [
     name: "Safety Signage",
     shortDescription: "Illuminated and non-illuminated emergency exit signs, fire safety signs and photoluminescent signage.",
     description: "Complete range of fire safety and emergency signage — illuminated and non-illuminated exit signs, mandatory and warning signs, photoluminescent signs for escape routes and fire equipment locations.",
-    image: "/products/safety-signage.jpg",
+        image: "/images/services/fire-detection.jpg",
     icon: "Sign",
   },
 ];
@@ -427,7 +427,7 @@ export const products: Product[] = [
     categorySlug: "fire-doors",
     shortDescription: "UL listed fire-rated steel doors — 1 HR, 1.5 HR, 3 HR ratings. Custom sizes up to 3m x 3m.",
     description: "Fire Safe supplies fire-rated steel doors available as Single and Pairs Swinging Types. Custom sizes available up to Maximum 3 Meter x 3 Meter. Fire Rating options: 3 HR, 1-1/2 HR, or 1 HR. Temperature Rise Rating: 30 Min — 450 F Max. Core materials: Honey Comb Core, Ceramic Fiber Core or Fiber Glass.",
-    image: "/products/fire-door.jpg",
+        image: "/images/services/fire-doors.jpg",
     features: [
       "UL Listed",
       "Single and pairs swinging types",
