@@ -123,7 +123,7 @@ export default function TermsPage() {
           <ul>
             <li>Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
             <li>Phone: {siteConfig.phone}</li>
-            <li>Address: {siteConfig.address}</li>
+            <li>Address: {siteConfig.corporateOffice}</li>
           </ul>
         </article>
       </section>

@@ -97,7 +97,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-2 text-slate-400">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                {siteConfig.address}
+                {siteConfig.corporateOffice}
               </div>
             </div>
           </div>

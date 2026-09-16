@@ -1,258 +1,269 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import { siteConfig } from "@/lib/data";
+import {
+  siteConfig,
+  industries,
+  managingDirector,
+  leadership,
+  partners,
+  complianceStandards,
+} from "@/lib/data";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import CTASection from "@/components/CTASection";
 import {
   Shield,
-  Eye,
   Target,
-  Building2,
-  Factory,
-  Shirt,
-  Warehouse,
+  Eye,
   Heart,
-  GraduationCap,
-  Hotel,
-  Home,
-  ShoppingBag,
-  Briefcase,
-  HardHat,
-  CheckCircle,
+  Lightbulb,
   Users,
   Award,
-  Wrench,
+  CheckCircle2,
+  ArrowRight,
+  Building2,
+  Factory,
+  Warehouse,
+  GraduationCap,
+  Hotel,
+  ShoppingBag,
+  HardHat,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${siteConfig.name} — our mission, vision, and the industries we serve across Bangladesh.`,
+  description: `Learn about Fire Safe BD Limited — established ${siteConfig.foundedYear}, a trusted name in fire protection, detection and life safety solutions in Bangladesh.`,
 };
 
-/* ── static data ──────────────────────────────────────── */
+const industryIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Building2, Factory, Warehouse, Heart, GraduationCap, Hotel, ShoppingBag, HardHat,
+};
 
 const values = [
-  {
-    icon: Shield,
-    title: "Safety First",
-    description:
-      "Every decision we make prioritises the safety of people and property. Our systems are designed, installed and maintained to the highest standards.",
-  },
-  {
-    icon: Eye,
-    title: "Integrity",
-    description:
-      "We operate with full transparency — honest assessments, fair pricing and no shortcuts on compliance or quality.",
-  },
-  {
-    icon: Target,
-    title: "Excellence",
-    description:
-      "From design through commissioning and ongoing maintenance, we pursue excellence at every stage of the fire-safety lifecycle.",
-  },
-  {
-    icon: Users,
-    title: "Client Partnership",
-    description:
-      "We build long-term relationships, working closely with clients to understand their unique risks and deliver tailored solutions.",
-  },
+  { icon: Shield, title: "Integrity", desc: "Honesty, transparency and accountability in every relationship — with clients, partners and team members." },
+  { icon: Users, title: "Customer Focus", desc: "Understanding unique client needs and offering personalized fire safety solutions that exceed expectations." },
+  { icon: Award, title: "Excellence", desc: "Continuous learning and performance improvement to deliver the highest quality outcomes every time." },
+  { icon: Lightbulb, title: "Innovation", desc: "Embracing technology and smarter systems to deliver future-ready fire safety solutions." },
+  { icon: Shield, title: "Safety First", desc: "Strict adherence to national and international safety standards — protecting lives, property and the environment." },
+  { icon: Users, title: "Teamwork", desc: "Best results come from collaboration — across departments, with clients, and with partners." },
 ];
-
-const industryItems = [
-  { icon: Factory, name: "Manufacturing" },
-  { icon: Shirt, name: "Garments & Textiles" },
-  { icon: Building2, name: "Commercial Buildings" },
-  { icon: Warehouse, name: "Warehouses & Logistics" },
-  { icon: Heart, name: "Hospitals & Healthcare" },
-  { icon: GraduationCap, name: "Educational Institutions" },
-  { icon: Hotel, name: "Hotels & Hospitality" },
-  { icon: Home, name: "Residential Buildings" },
-  { icon: ShoppingBag, name: "Retail & Shopping" },
-  { icon: Briefcase, name: "Offices" },
-  { icon: HardHat, name: "Industrial Facilities" },
-];
-
-const capabilities = [
-  "Fire Alarm System Design & Installation",
-  "Fire Detection System Integration",
-  "Fire Suppression System Engineering",
-  "Fire Extinguisher Supply & Servicing",
-  "Annual Safety Inspections & Audits",
-  "Preventive Maintenance Contracts",
-  "Fire Safety Consultancy & Risk Assessment",
-  "Emergency Evacuation Planning",
-  "Code Compliance & Certification Support",
-  "24/7 Emergency Response",
-];
-
-/* ── page ─────────────────────────────────────────────── */
 
 export default function AboutPage() {
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────── */}
-      <section className="relative bg-navy-900 py-24 text-white sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <span className="mb-4 inline-block rounded-full border border-fire-500/30 bg-fire-500/10 px-4 py-1.5 text-sm font-medium text-fire-400">
-            About Us
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            About Fire Safe BD Ltd.
+      {/* Hero */}
+      <section className="bg-navy-900 py-16 text-white lg:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+            ]}
+          />
+          <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            About Fire Safe BD Limited
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-            {siteConfig.description}
+          <p className="mt-4 max-w-3xl text-lg text-slate-300">
+            A trusted name in fire protection, detection and life safety solutions
+            in Bangladesh since {siteConfig.foundedYear}.
           </p>
         </div>
       </section>
 
-      {/* ── Company Introduction ──────────────────────── */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-5xl px-4">
-          <h2 className="text-3xl font-bold text-navy-900 sm:text-4xl">
-            Who We Are
-          </h2>
-          <div className="mt-4 h-1 w-20 rounded bg-fire-600" />
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-slate-600">
-            <p>
-              [Company Introduction — Client Content Required]
-            </p>
-            <p>
-              [Additional company history, founding story, and key milestones —
-              Client Content Required]
-            </p>
-            <p>
-              [Team overview, leadership, and organisational strengths — Client
-              Content Required]
-            </p>
+      {/* Company Overview */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold text-navy-900">Company Overview</h2>
+              <p className="mt-4 leading-relaxed text-slate-600">
+                Fire Safe BD LTD is a trusted name in the field of fire protection,
+                detection, and life safety solutions in Bangladesh. Established with a
+                clear vision to protect lives, property, and the environment, our company
+                has rapidly evolved into a comprehensive fire safety service provider
+                offering tailored, turnkey solutions for diverse industries and infrastructure.
+              </p>
+              <p className="mt-4 leading-relaxed text-slate-600">
+                We specialize in the design, supply, installation, testing, commissioning,
+                and maintenance of a wide range of fire detection and suppression systems.
+                Our offerings include conventional and addressable fire alarm systems, fire
+                hydrant and sprinkler systems, gas suppression systems (FM-200, NOVEC 1230,
+                CO2), fire extinguishers, fire pumps, and related accessories.
+              </p>
+              <p className="mt-4 leading-relaxed text-slate-600">
+                All our systems are designed in accordance with national and international
+                standards such as BNBC, NFPA, and ISO, and we only source equipment from
+                globally recognized and certified manufacturers to ensure quality and reliability.
+              </p>
+
+              {/* Key Facts */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="rounded-xl bg-slate-50 p-4 text-center">
+                  <div className="text-2xl font-bold text-fire-600">{siteConfig.foundedYear}</div>
+                  <div className="text-sm text-slate-500">Established</div>
+                </div>
+                <div className="rounded-xl bg-slate-50 p-4 text-center">
+                  <div className="text-2xl font-bold text-fire-600">{siteConfig.employees}</div>
+                  <div className="text-sm text-slate-500">Employees</div>
+                </div>
+                <div className="rounded-xl bg-slate-50 p-4 text-center">
+                  <div className="text-2xl font-bold text-fire-600">55+</div>
+                  <div className="text-sm text-slate-500">Projects Completed</div>
+                </div>
+                <div className="rounded-xl bg-slate-50 p-4 text-center">
+                  <div className="text-2xl font-bold text-fire-600">120+</div>
+                  <div className="text-sm text-slate-500">Corporate Clients</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-navy-900">Managing Director&apos;s Message</h2>
+              <blockquote className="mt-4 border-l-4 border-fire-500 pl-4 italic text-slate-600">
+                &ldquo;{managingDirector.message}&rdquo;
+              </blockquote>
+              <div className="mt-4">
+                <div className="font-semibold text-navy-900">{managingDirector.name}</div>
+                <div className="text-sm text-slate-500">{managingDirector.title}</div>
+                <div className="text-xs text-slate-400">{managingDirector.education}</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Mission / Vision / Values ─────────────────── */}
-      <section className="bg-slate-50 py-20">
+      {/* Vision & Mission */}
+      <section className="bg-slate-50 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-12 lg:grid-cols-3">
-            {/* Mission */}
+          <div className="grid gap-8 lg:grid-cols-2">
             <div className="rounded-2xl bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-fire-50 text-fire-600">
-                <Target className="h-6 w-6" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-fire-50">
+                <Eye className="h-6 w-6 text-fire-600" />
               </div>
-              <h3 className="text-xl font-bold text-navy-900">Our Mission</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
-                [Mission statement — Client Content Required]
+              <h3 className="mt-4 text-xl font-bold text-navy-900">Our Vision</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                To become the most trusted and recognized name in fire safety solutions,
+                not only in Bangladesh but across the global landscape. We aim to lead the
+                industry through innovation, integrity, and a relentless commitment to
+                safeguarding lives and properties.
               </p>
             </div>
-
-            {/* Vision */}
             <div className="rounded-2xl bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-fire-50 text-fire-600">
-                <Eye className="h-6 w-6" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-fire-50">
+                <Target className="h-6 w-6 text-fire-600" />
               </div>
-              <h3 className="text-xl font-bold text-navy-900">Our Vision</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
-                [Vision statement — Client Content Required]
+              <h3 className="mt-4 text-xl font-bold text-navy-900">Our Mission</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                To deliver innovative fire protection solutions, protect lives, assets and
+                the environment, and provide end-to-end support from design to maintenance.
+                We offer comprehensive support throughout the lifecycle of every project —
+                your one-stop solution partner.
               </p>
-            </div>
-
-            {/* Core Values */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-fire-50 text-fire-600">
-                <Award className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold text-navy-900">Core Values</h3>
-              <ul className="mt-3 space-y-2 text-slate-600">
-                {values.map((v) => (
-                  <li key={v.title} className="flex items-start gap-2">
-                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-fire-500" />
-                    <span>{v.title}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Value cards */}
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Core Values */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold text-navy-900 lg:text-center">Core Values</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((v) => (
-              <div key={v.title} className="text-center">
-                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-navy-900 text-fire-500">
-                  <v.icon className="h-7 w-7" />
-                </div>
-                <h4 className="text-lg font-semibold text-navy-900">{v.title}</h4>
-                <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-                  {v.description}
-                </p>
+              <div key={v.title} className="rounded-xl border border-slate-200 p-6">
+                <v.icon className="h-6 w-6 text-fire-600" />
+                <h3 className="mt-3 font-semibold text-navy-900">{v.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Industries Served ─────────────────────────── */}
-      <section className="bg-white py-20">
+      {/* Leadership Team */}
+      <section className="bg-slate-50 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="text-center">
-            <span className="mb-3 inline-block rounded-full border border-fire-500/30 bg-fire-500/10 px-4 py-1.5 text-sm font-medium text-fire-600">
-              Our Expertise
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
-              Industries We Serve
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-500">
-              From garment factories to five-star hotels, we provide tailored
-              fire-safety solutions across a wide range of sectors.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {industryItems.map((ind) => (
-              <div
-                key={ind.name}
-                className="group flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition hover:border-fire-200 hover:bg-fire-50/50"
-              >
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-navy-900 text-fire-500 transition group-hover:bg-fire-600 group-hover:text-white">
-                  <ind.icon className="h-5 w-5" />
+          <h2 className="text-2xl font-bold text-navy-900 lg:text-center">Our Leadership</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {leadership.map((person) => (
+              <div key={person.name} className="rounded-xl border border-slate-200 bg-white p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy-900 text-sm font-bold text-white">
+                  {person.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                 </div>
-                <span className="font-medium text-navy-900">{ind.name}</span>
+                <h3 className="mt-4 font-semibold text-navy-900">{person.name}</h3>
+                <p className="text-sm font-medium text-fire-600">{person.role}</p>
+                <p className="mt-1 text-xs text-slate-500">{person.education}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Capabilities ──────────────────────────────── */}
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-5xl px-4">
-          <div className="text-center">
-            <span className="mb-3 inline-block rounded-full border border-fire-500/30 bg-fire-500/10 px-4 py-1.5 text-sm font-medium text-fire-600">
-              What We Do
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
-              Our Capabilities
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-4 sm:grid-cols-2">
-            {capabilities.map((cap) => (
-              <div
-                key={cap}
-                className="flex items-center gap-3 rounded-lg bg-white px-5 py-4 shadow-sm"
-              >
-                <CheckCircle className="h-5 w-5 flex-shrink-0 text-fire-600" />
-                <span className="text-slate-700">{cap}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-fire-600 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-fire-700"
-            >
-              <Wrench className="h-4 w-4" />
-              Discuss Your Project
-            </Link>
+      {/* Industries */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold text-navy-900 lg:text-center">Industries We Serve</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {industries.map((ind) => {
+              const Icon = industryIconMap[ind.icon] || Building2;
+              return (
+                <div key={ind.slug} className="rounded-xl border border-slate-200 p-5">
+                  <Icon className="h-6 w-6 text-fire-600" />
+                  <h3 className="mt-3 font-semibold text-navy-900">{ind.name}</h3>
+                  <p className="mt-1 text-sm text-slate-600 line-clamp-3">{ind.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      {/* Global Partners */}
+      <section className="bg-slate-50 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold text-navy-900 lg:text-center">Global Partners &amp; Sourcing</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+            We source equipment from internationally recognized and certified manufacturers
+            to ensure quality and reliability.
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {partners.map((partner) => (
+              <div key={partner.name} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
+                <div className="text-lg font-bold text-navy-900">{partner.name}</div>
+                <div className="text-xs font-medium text-fire-600">{partner.country}</div>
+                <p className="mt-2 text-sm text-slate-500">{partner.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Standards */}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold text-navy-900 lg:text-center">Compliance &amp; Standards</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {complianceStandards.map((std) => (
+              <div key={std.code} className="flex items-start gap-3 rounded-xl border border-slate-200 p-5">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-fire-600" />
+                <div>
+                  <div className="font-semibold text-navy-900">{std.code}</div>
+                  <div className="text-sm text-slate-500">{std.name}</div>
+                  <div className="text-xs text-slate-400">{std.details}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        title="Partner With Fire Safe BD"
+        description="Contact us for a free consultation on fire safety solutions for your building or facility."
+        primaryLabel="Request a Consultation"
+        primaryHref="/contact"
+        secondaryLabel="WhatsApp Us"
+        secondaryHref={`https://wa.me/${siteConfig.whatsapp}`}
+      />
     </>
   );
 }

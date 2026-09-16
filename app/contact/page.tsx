@@ -70,7 +70,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-navy-900">Office Address</p>
-                    <p className="mt-0.5 text-slate-600">{siteConfig.address}</p>
+                    <p className="mt-0.5 text-slate-600">{siteConfig.corporateOffice}</p>
                   </div>
                 </div>
 

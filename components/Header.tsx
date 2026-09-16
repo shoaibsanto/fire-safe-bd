@@ -35,18 +35,12 @@ export function Header() {
       {/* Main nav */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5 lg:py-3">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-fire-600 text-sm font-bold text-white">
-            FS
-          </div>
-          <div className="hidden sm:block">
-            <div className="text-base font-bold leading-tight tracking-tight">
-              Fire Safe BD
-            </div>
-            <div className="text-[10px] leading-tight text-slate-400 tracking-wide">
-              {siteConfig.tagline}
-            </div>
-          </div>
+        <Link href="/" className="flex items-center shrink-0">
+          <img
+            src="/logo.jpg"
+            alt="Fire Safe BD Ltd."
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav — single line */}

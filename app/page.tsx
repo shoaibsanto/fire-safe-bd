@@ -191,19 +191,19 @@ export default function HomePage() {
             {/* Quick stats */}
             <div className="mx-auto mt-16 grid max-w-lg grid-cols-3 gap-8 border-t border-navy-700 pt-8">
               <div>
-                <div className="text-2xl font-bold text-white">[Number]</div>
+                <div className="text-2xl font-bold text-white">55+</div>
                 <div className="mt-1 text-sm text-slate-400">
                   Projects Completed
                 </div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">[Number]</div>
+                <div className="text-2xl font-bold text-white">120+</div>
                 <div className="mt-1 text-sm text-slate-400">
                   Corporate Clients
                 </div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">[Number]</div>
+                <div className="text-2xl font-bold text-white">12</div>
                 <div className="mt-1 text-sm text-slate-400">
                   Years of Experience
                 </div>
