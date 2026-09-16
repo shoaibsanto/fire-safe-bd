@@ -24,7 +24,7 @@ export const navItems = [
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Clients & Partners", href: "/clients" },
+  { label: "Clients", href: "/clients" },
   { label: "Certifications", href: "/certifications" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
