@@ -56,6 +56,17 @@ export async function generateMetadata({
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
+const categoryImages: Record<string, string> = {
+  "fire-alarm-systems": "/images/services/fire-detection.jpg",
+  "fire-pumps": "/images/services/fire-pumps.jpg",
+  "fire-suppression-systems": "/images/services/fire-suppression.jpg",
+  "fire-extinguishers": "/images/services/fire-extinguishers.jpg",
+  "fire-doors": "/images/services/fire-doors.jpg",
+  "sprinkler-systems": "/images/services/sprinkler.jpg",
+  "fire-hose-fittings": "/images/services/fire-pumps.jpg",
+  "safety-signage": "/images/services/fire-detection.jpg",
+};
+
 export default async function ProductDetailPage({
   params,
 }: {
@@ -82,6 +93,7 @@ export default async function ProductDetailPage({
     );
   }
 
+  const catImage = categoryImages[product.categorySlug] || "/images/services/fire-detection.jpg";
   const relatedProducts = getProductsByCategory(categorySlug).filter(
     (p) => p.slug !== slug,
   );
@@ -115,14 +127,13 @@ export default async function ProductDetailPage({
         <div className="grid gap-12 lg:grid-cols-3">
           {/* Left column — overview + specs */}
           <div className="lg:col-span-2 space-y-10">
-            {/* Image gallery placeholder */}
-            <div className="flex h-64 items-center justify-center rounded-xl bg-navy-50 text-navy-300 sm:h-80">
-              <div className="text-center">
-                <Flame className="mx-auto h-20 w-20" />
-                <p className="mt-3 text-sm font-medium text-navy-400">
-                  Product Images
-                </p>
-              </div>
+            {/* Product image from catalog */}
+            <div className="overflow-hidden rounded-xl bg-slate-100">
+              <img
+                src={catImage}
+                alt={product.name}
+                className="h-64 w-full object-cover sm:h-80"
+              />
             </div>
 
             {/* Overview */}
@@ -262,7 +273,7 @@ export default async function ProductDetailPage({
                   className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
                 >
                   <div className="relative flex h-40 items-center justify-center bg-navy-50 text-navy-300">
-                    <Flame className="h-12 w-12" />
+                    <img src={catImage} alt={rp.name} className="h-24 w-full object-cover rounded-lg" />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="text-lg font-semibold text-slate-900 group-hover:text-fire-600">

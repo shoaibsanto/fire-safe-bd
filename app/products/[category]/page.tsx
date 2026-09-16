@@ -64,6 +64,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category: slug } = await params;
   const cat = getCategory(slug);
+  const catImage = categoryImages[slug] || "/images/services/fire-detection.jpg";
 
   if (!cat) {
     return { title: "Category Not Found" };
@@ -82,6 +83,17 @@ export async function generateMetadata({
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
+const categoryImages: Record<string, string> = {
+  "fire-alarm-systems": "/images/services/fire-detection.jpg",
+  "fire-pumps": "/images/services/fire-pumps.jpg",
+  "fire-suppression-systems": "/images/services/fire-suppression.jpg",
+  "fire-extinguishers": "/images/services/fire-extinguishers.jpg",
+  "fire-doors": "/images/services/fire-doors.jpg",
+  "sprinkler-systems": "/images/services/sprinkler.jpg",
+  "fire-hose-fittings": "/images/services/fire-pumps.jpg",
+  "safety-signage": "/images/services/fire-detection.jpg",
+};
+
 export default async function CategoryPage({
   params,
 }: {
@@ -89,6 +101,7 @@ export default async function CategoryPage({
 }) {
   const { category: slug } = await params;
   const cat = getCategory(slug);
+  const catImage = categoryImages[slug] || "/images/services/fire-detection.jpg";
 
   if (!cat) {
     return (
@@ -151,9 +164,13 @@ export default async function CategoryPage({
                 href={`/products/${slug}/${product.slug}`}
                 className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
               >
-                {/* Image placeholder */}
-                <div className="relative flex h-48 items-center justify-center bg-navy-50 text-navy-300">
-                  <Flame className="h-16 w-16" />
+                {/* Product image */}
+                <div className="relative h-48 overflow-hidden bg-slate-100">
+                  <img
+                    src={catImage}
+                    alt={product.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
 
                 <div className="flex flex-1 flex-col p-5">
