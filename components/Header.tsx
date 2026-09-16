@@ -3,131 +3,101 @@
 import { useState } from "react";
 import Link from "next/link";
 import { navItems, siteConfig } from "@/lib/data";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, ArrowRight } from "lucide-react";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy-900 text-white shadow-lg">
+    <header className="sticky top-0 z-50">
       {/* Top bar */}
-      <div className="hidden border-b border-navy-700 bg-navy-950 lg:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 text-xs text-slate-400">
-          <div className="flex items-center gap-5">
-            <a
-              href={`tel:${siteConfig.phoneFull}`}
-              className="flex items-center gap-1 hover:text-white transition-colors"
-            >
+      <div className="bg-fire-700 text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs">
+          <div className="flex items-center gap-4">
+            <a href={`tel:${siteConfig.phoneFull}`} className="flex items-center gap-1 hover:text-white/80">
               <Phone className="h-3 w-3" />
-              {siteConfig.phone}
+              {siteConfig.phone} | {siteConfig.phone2}
             </a>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="hover:text-white transition-colors"
-            >
+            <a href={`mailto:${siteConfig.email}`} className="hidden sm:flex items-center gap-1 hover:text-white/80">
+              <Mail className="h-3 w-3" />
               {siteConfig.email}
             </a>
           </div>
-          <div>{siteConfig.businessHours}</div>
+          <div className="hidden sm:flex items-center gap-3">
+            <span className="text-white/70">Follow Us:</span>
+            <a href="#" className="hover:text-white/80">Facebook</a>
+            <a href="#" className="hover:text-white/80">LinkedIn</a>
+            <a href="#" className="hover:text-white/80">YouTube</a>
+          </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5 lg:py-3">
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
-          <img
-            src="/logo.jpg"
-            alt="Fire Safe BD Ltd."
-            className="h-10 w-auto"
-          />
-        </Link>
-
-        {/* Desktop nav — single line */}
-        <nav className="hidden items-center gap-0.5 xl:flex whitespace-nowrap">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2.5 py-1.5 text-[13px] font-medium text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop CTA */}
-        <div className="hidden items-center gap-2.5 xl:flex shrink-0">
-          <a
-            href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hello Fire Safe BD, I would like to know more about your fire safety solutions.")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-md border border-green-500/30 px-3 py-1.5 text-[13px] font-medium text-green-400 transition-colors hover:bg-green-500/10"
-          >
-            <MessageCircle className="h-3.5 w-3.5" />
-            WhatsApp
-          </a>
-          <Link
-            href="/contact"
-            className="rounded-md bg-fire-600 px-4 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-fire-700"
-          >
-            Request a Consultation
+      <div className="bg-white shadow-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0">
+            <img src="/logo.jpg" alt="Fire Safe BD Ltd." className="h-12 w-auto" />
           </Link>
-        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-md p-2 text-slate-200 hover:bg-white/10 xl:hidden"
-          aria-label="Toggle navigation"
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </button>
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-fire-50 hover:text-fire-700"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="#contact"
+              className="flex items-center gap-2 rounded-md bg-fire-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-fire-700"
+            >
+              Get a Quote
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            aria-label="Toggle navigation"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-navy-700 bg-navy-900 px-4 pb-4 xl:hidden">
-          <nav className="flex flex-col gap-0.5 py-2">
+        <div className="border-t border-slate-200 bg-white px-4 pb-4 lg:hidden shadow-lg">
+          <nav className="flex flex-col gap-1 py-2">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm text-slate-200 hover:bg-white/10 hover:text-white"
+                className="rounded-md px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-fire-50 hover:text-fire-700"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </nav>
-          <div className="flex flex-col gap-2 border-t border-navy-700 pt-3">
+          <div className="border-t border-slate-200 pt-3">
             <a
-              href={`tel:${siteConfig.phoneFull}`}
-              className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm text-slate-200 hover:bg-white/10"
-            >
-              <Phone className="h-4 w-4" />
-              Call {siteConfig.phone}
-            </a>
-            <a
-              href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hello Fire Safe BD, I would like to know more about your fire safety solutions.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm text-green-400 hover:bg-green-500/10"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp Us
-            </a>
-            <Link
-              href="/contact"
+              href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="rounded-md bg-fire-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-fire-700"
+              className="flex items-center justify-center gap-2 rounded-md bg-fire-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-fire-700"
             >
-              Request a Consultation
-            </Link>
+              Get a Quote <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       )}

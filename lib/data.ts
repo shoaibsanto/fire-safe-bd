@@ -1,8 +1,8 @@
-// Site-wide data for Fire Safe BD Ltd. — Updated from company profile
+// Site-wide data for Fire Safe BD Ltd.
 
 export const siteConfig = {
-  name: "Fire Safe BD Limited",
-  tagline: "Smart Detection. Safe Protection.",
+  name: "Fire Safe BD Ltd.",
+  tagline: "Safety Today, A Better Tomorrow.",
   description:
     "Professional fire safety, fire detection, fire protection and fire fighting solutions for buildings, industries and businesses in Dhaka, Bangladesh. Established 2013.",
   url: "https://firesafebd.com",
@@ -11,7 +11,7 @@ export const siteConfig = {
   phone2: "01711102750",
   phoneFull: "+8801712960336",
   whatsapp: "8801712960336",
-  corporateOffice: "5/1, DQL Mohsin Plaza (5th Floor), Folder Street, Wari, Dhaka-1203",
+  corporateOffice: "5/1, D/Q, Mohsin Plaza (5th Floor), Folder Street, Wari, Dhaka-1203",
   registerAddress: "229, Lal Mohan Sha Street, Wari, Dhaka-1203",
   addressShort: "Wari, Dhaka-1203",
   businessHours: "Saturday – Thursday: 9:00 AM – 6:00 PM",
@@ -25,107 +25,100 @@ export const siteConfig = {
 
 export const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Products", href: "/products" },
-  { label: "Projects", href: "/projects" },
-  { label: "Industries", href: "/industries" },
-  { label: "Clients", href: "/clients" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "#about" },
+  { label: "Our Services", href: "#services" },
+  { label: "Our Projects", href: "#projects" },
+  { label: "Partners", href: "#partners" },
+  { label: "CSR", href: "#csr" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
-export const industries = [
+export const services = [
   {
-    slug: "residential-commercial",
-    name: "Residential & Commercial Buildings",
-    description:
-      "Fire safety systems for residential towers, apartments, office buildings, mixed-use developments and commercial complexes — addressable fire alarms, sprinklers, evacuation plans and smoke control.",
-    icon: "Building2",
+    title: "Fire Detection Systems",
+    description: "Advanced fire detection and alarm systems designed to provide early warning and protect people and property.",
+    items: ["Fire Alarm System", "Smoke Detection", "Heat Detection", "Manual Call Points", "Alarm & Notification Devices", "Control Panels"],
+    image: "/images/services/fire-detection.jpg",
   },
   {
-    slug: "factories-garments",
-    name: "Factories & Garments Industry",
-    description:
-      "Complete industrial fire safety solutions for RMG factories and manufacturing plants — fire pump systems, hydrants, suppression systems and fire training to meet ACCORD and ALLIANCE compliance.",
-    icon: "Factory",
+    title: "Fire Suppression Systems",
+    description: "Reliable fire suppression solutions engineered for commercial, industrial, and specialized environments.",
+    items: ["Automatic Fire Suppression", "Gas Suppression Systems", "Clean Agent Systems", "Kitchen Fire Suppression", "Industrial Suppression", "System Testing & Commissioning"],
+    image: "/images/services/fire-suppression.jpg",
   },
   {
-    slug: "warehouses",
-    name: "Warehouses & Storage",
-    description:
-      "Early fire detection systems, smoke/heat detection and zoning-based sprinkler layouts for large storage areas — protecting high-value goods without disrupting operations.",
-    icon: "Warehouse",
+    title: "Hydrant & Sprinkler Systems",
+    description: "Complete hydrant and sprinkler systems for reliable fire protection throughout your facility.",
+    items: ["Fire Hydrant System", "Automatic Sprinkler System", "Hose Reel System", "Fire Fighting Piping", "Valve & Accessories", "Testing & Commissioning"],
+    image: "/images/services/sprinkler.jpg",
   },
   {
-    slug: "hospitals",
-    name: "Hospitals & Healthcare",
-    description:
-      "Non-disruptive fire protection for healthcare facilities — silent alarm systems, gas-based suppression (FM-200, NOVEC 1230) for server rooms and operating theatres.",
-    icon: "Heart",
+    title: "Fire Extinguisher Supply & Installation",
+    description: "Supply, installation, inspection, refilling, and maintenance of fire extinguishers.",
+    items: ["ABC Dry Powder", "CO₂ Extinguishers", "Foam Extinguishers", "Water Extinguishers", "Fire Extinguisher Refilling", "Inspection & Maintenance"],
+    image: "/images/services/fire-extinguishers.jpg",
   },
   {
-    slug: "educational-institutions",
-    name: "Educational Institutions",
-    description:
-      "Comprehensive fire safety designs for schools, colleges and universities — classrooms, auditoriums, libraries and laboratories paired with training programs and regular drills.",
-    icon: "GraduationCap",
+    title: "Fire Pump System Setup",
+    description: "We provide complete fire pump solutions including diesel, electric, and jockey pumps with control panels.",
+    items: ["Design & Sizing", "Supply of UL/FM Approved Pumps", "Installation & Testing", "Panel Programming"],
+    image: "/images/services/fire-pumps.jpg",
   },
   {
-    slug: "hotels-restaurants",
-    name: "Hotels & Restaurants",
-    description:
-      "Kitchen hood suppression systems, centralized alarm monitoring and automated sprinkler setups for hospitality — protecting guests and staff without compromising comfort.",
-    icon: "Hotel",
+    title: "Fire Door Supply",
+    description: "We supply fire-rated steel doors of various ratings, including 60, 90, and 120 minutes, certified according to applicable local and international fire safety standards.",
+    items: ["Staircases", "Basements", "Emergency Exits", "Electrical Rooms", "Generator Rooms"],
+    image: "/images/services/fire-doors.jpg",
   },
   {
-    slug: "shopping-malls",
-    name: "Shopping Malls & Retail",
-    description:
-      "Integrated systems with smoke detectors, PA alarms, emergency lighting and fire exit planning for high-foot-traffic environments — efficient evacuation and fire containment.",
-    icon: "ShoppingBag",
+    title: "AMC & Troubleshooting",
+    description: "Our Annual Maintenance Contract helps keep fire safety systems operational through planned maintenance and technical support.",
+    items: ["Scheduled Maintenance", "Emergency Repairs", "System Troubleshooting", "Performance Testing"],
+    image: "/images/services/amc.jpg",
   },
   {
-    slug: "industrial-facilities",
-    name: "Industrial Facilities",
-    description:
-      "Heavy-duty fire protection for power plants, refineries and high-hazard industrial operations — complete fire pump, hydrant and suppression system solutions.",
-    icon: "HardHat",
+    title: "Fire Safety Consultancy",
+    description: "We conduct professional audits to assess your fire safety preparedness and compliance.",
+    items: ["Design Drawing Support", "NOC & Occupancy Certificate Support", "Gap Analysis", "Staff Fire Safety Training"],
+    image: "/images/services/fire-detection.jpg",
   },
-];
-
-export const managingDirector = {
-  name: "Md. Mahfuzur Rahman",
-  title: "Managing Director",
-  education: "BA Hons Applied Accounting, Anglia Ruskin University (UK)",
-  message:
-    "At Fire Safe BD LTD, our core mission goes beyond business — it is about protecting what matters most: human lives, valuable assets, and the environments we live and work in. From the very beginning, I envisioned a company built not only on reliable products and services but also on trust, technical precision, and unwavering ethical standards.",
-};
-
-export const leadership = [
-  { name: "Md. Mahfuzur Rahman", role: "Managing Director", education: "BA Hons Applied Accounting, Anglia Ruskin University (UK)" },
-  { name: "Md. Asif Uddin", role: "Chairman", education: "Diploma, B.A Hons, Kabinazrul College (Dhaka)" },
-  { name: "Abu Sufian Ahmed", role: "Director", education: "BBA, BRAC University (Dhaka)" },
-  { name: "Brig. Gen. Md. Mizanur Rahman", role: "Director Advisory", education: "NDC, PSC (Retd)" },
-  { name: "Parimal Chandra Kundu", role: "Advisor", education: "Assistant Director (Retd) Fire Service & Civil Defence" },
-  { name: "Faisal Bhuiya", role: "Advisor & Fire Professional", education: "Senior Manager (Accounts & Admin)" },
+  {
+    title: "CCTV System",
+    description: "We supply and install high-resolution CCTV surveillance systems for fire watch and security monitoring.",
+    items: ["IP & Analog Cameras", "NVR/DVR Systems", "Remote Monitoring", "Motion Detection & Alerts"],
+    image: "/images/services/fire-detection.jpg",
+  },
+  {
+    title: "Solar System",
+    description: "We offer turnkey solar solutions for commercial and industrial clients.",
+    items: ["On-Grid & Off-Grid Systems", "Inverter, Panel & Battery Supply", "Installation & Commissioning", "Net Metering Support"],
+    image: "/images/services/solar.jpg",
+  },
+  {
+    title: "LPS (Lightning Protection System)",
+    description: "We provide complete LPS design and installation following applicable international standards, including IEC/BS EN standards.",
+    items: ["Air Terminals", "Down Conductors", "Earth Pits", "Surge Protection Devices (SPD)"],
+    image: "/images/services/fire-pumps.jpg",
+  },
 ];
 
 export const partners = [
-  { name: "ebitt", country: "International", description: "Fire protection and safety equipment" },
-  { name: "Cooper", country: "International", description: "Fire alarm and detection systems" },
-  { name: "SRI", country: "Malaysia", description: "Fire protection products — valves, hydrants, extinguishers, sprinklers" },
-  { name: "NAFFCO", country: "UAE", description: "Fire fighting equipment, vehicles and safety systems" },
-  { name: "Firetex", country: "International", description: "Fire suppression coatings and systems" },
-  { name: "Quantum Pump Systems", country: "UK", description: "Engineered fire pump solutions, NFPA-20 compliant" },
-  { name: "Matrix", country: "International", description: "Addressable fire alarm control panels" },
-  { name: "Potter", country: "USA", description: "Fire alarm and suppression control systems" },
+  { name: "Simplex", country: "USA" },
+  { name: "Apollo", country: "UK" },
+  { name: "SRI", country: "Malaysia" },
+  { name: "C-TEC", country: "UK" },
+  { name: "Notifier by Honeywell", country: "USA" },
+  { name: "Quantum Pump Systems", country: "UK" },
+  { name: "Defender", country: "UK" },
 ];
 
-export const complianceStandards = [
-  { code: "NFPA", name: "National Fire Protection Association", details: "NFPA 10, 13, 20, 25, 72, 2001" },
-  { code: "BNBC", name: "Bangladesh National Building Code", details: "Mandatory fire safety regulations" },
-  { code: "UL/FM", name: "Underwriters Laboratories / Factory Mutual", details: "Product certifications" },
-  { code: "ISO", name: "ISO 9001:2015", details: "Referenced product quality standards" },
-  { code: "FSCD", name: "Fire Service & Civil Defence", details: "NOC and approval compliance" },
-  { code: "IEC/BS EN", name: "International Electrotechnical Commission", details: "LPS and electrical standards" },
+export const industries = [
+  { name: "Manufacturing", icon: "Factory" },
+  { name: "Garments & Textiles", icon: "Factory" },
+  { name: "Commercial Buildings", icon: "Building2" },
+  { name: "Warehouses", icon: "Warehouse" },
+  { name: "Hospitals", icon: "Heart" },
+  { name: "Educational Institutions", icon: "GraduationCap" },
+  { name: "Hotels & Restaurants", icon: "Hotel" },
+  { name: "Shopping Malls", icon: "ShoppingBag" },
 ];
