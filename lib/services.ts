@@ -9,6 +9,7 @@ export interface Service {
   features: string[];
   process: string[];
   applications: string[];
+  image: string;
   relatedProducts: string[];
   faq: { question: string; answer: string }[];
 }
@@ -22,6 +23,7 @@ export const services: Service[] = [
     description:
       "We offer cutting-edge addressable and conventional fire alarm systems using globally recognized brands like Apollo, C-TEC, Advanced, and Simplex. Our systems are designed to provide early warning and life safety across all building types — from offices and hotels to hospitals and industrial facilities.",
     icon: "ScanEye",
+  image: "/images/services/fire-detection.jpg",
     features: [
       "Smoke detectors (optical and ionization)",
       "Heat detectors (rate-of-rise and fixed temperature)",
@@ -69,6 +71,7 @@ export const services: Service[] = [
     description:
       "We design and install advanced fire suppression systems suitable for data centres, control rooms, industrial environments and commercial spaces. Our systems include FM-200, NOVEC 1230, CO2 flooding, dry chemical systems and kitchen hood suppression — all compliant with NFPA 2001.",
     icon: "Droplets",
+  image: "/images/services/fire-suppression.jpg",
     features: [
       "FM-200 (HFC-227ea) clean agent systems",
       "NOVEC 1230 clean agent systems",
@@ -110,6 +113,7 @@ export const services: Service[] = [
     description:
       "We provide full design, supply, installation and commissioning of fire hydrant and automatic sprinkler systems as per NFPA and BNBC standards. Our systems include landing valves, fire hose reels, sprinkler heads, piping networks and zone control valves.",
     icon: "Droplets",
+  image: "/images/services/sprinkler.jpg",
     features: [
       "Fire hydrant system design and installation",
       "Automatic sprinkler system installation",
@@ -151,6 +155,7 @@ export const services: Service[] = [
     description:
       "We supply and install certified fire extinguishers suited for various risks and environments. All extinguishers are CE marked, pressure-tested and refillable with wall-mounting brackets. We also supply fire blankets, fire buckets, stands and boxes.",
     icon: "Flame",
+  image: "/images/services/fire-extinguishers.jpg",
     features: [
       "ABC dry powder extinguishers",
       "CO2 (carbon dioxide) extinguishers",
@@ -192,6 +197,7 @@ export const services: Service[] = [
     description:
       "We provide complete fire pump solutions including diesel, electric and jockey pumps with control panels. Our services include design and sizing, supply of UL/FM approved pumps, installation and testing, and panel programming. All systems comply with NFPA 20.",
     icon: "Zap",
+  image: "/images/services/fire-pumps.jpg",
     features: [
       "Electric and diesel engine driven pumps",
       "Jockey pumps for pressure maintenance",
@@ -233,6 +239,7 @@ export const services: Service[] = [
     description:
       "We supply fire-rated steel doors of various ratings (30, 60, 90, 120 minutes), certified as per local and international fire safety standards. Doors come with certified hardware including panic bars, door closers, seals and vision panels. Tested as per BS, UL and EN standards.",
     icon: "Shield",
+  image: "/images/services/fire-doors.jpg",
     features: [
       "Rated fire doors: 30, 60, 90 and 120 minutes",
       "Single and double leaf options",
@@ -272,6 +279,7 @@ export const services: Service[] = [
     description:
       "Our Annual Maintenance Contract ensures that all fire safety systems remain operational through scheduled maintenance, emergency repairs, system troubleshooting and performance testing. We provide 24/7 emergency support to all clients.",
     icon: "Wrench",
+  image: "/images/services/amc.jpg",
     features: [
       "Scheduled preventive maintenance",
       "Emergency repair and call-out service",
@@ -312,6 +320,7 @@ export const services: Service[] = [
     description:
       "We conduct professional audits to assess your fire safety preparedness and compliance. Our consultancy services include design drawing support, NOC and occupancy certificate assistance from fire service, gap analysis and staff fire safety training.",
     icon: "BookOpen",
+  image: "/images/services/fire-detection.jpg",
     features: [
       "Fire safety design drawing support",
       "NOC and occupancy certificate from fire service",
@@ -351,6 +360,7 @@ export const services: Service[] = [
     description:
       "We supply and install high-resolution CCTV surveillance systems for fire watch and security monitoring. Solutions include IP and analog cameras, NVR/DVR systems, remote monitoring, and integration with fire alarm systems for event-triggered recording.",
     icon: "Camera",
+  image: "/images/services/fire-detection.jpg",
     features: [
       "IP and analog CCTV cameras",
       "Indoor/outdoor dome, bullet and PTZ cameras",
@@ -386,6 +396,7 @@ export const services: Service[] = [
     description:
       "We offer turnkey solar solutions for commercial and industrial clients. Services include on-grid and off-grid systems, inverter, panel and battery supply, installation and commissioning, and net metering support. Compatible with fire alarm, CCTV and emergency lighting systems.",
     icon: "Sun",
+  image: "/images/services/solar.jpg",
     features: [
       "On-grid and off-grid solar systems",
       "Hybrid solar solutions",
@@ -421,6 +432,7 @@ export const services: Service[] = [
     description:
       "We provide complete Lightning Protection System (LPS) design and installation following international standards (IEC/BS EN). Components include air terminals, down conductors, earth pits and surge protection devices (SPD) for comprehensive lightning and surge protection.",
     icon: "Zap",
+  image: "/images/services/fire-pumps.jpg",
     features: [
       "Air terminals (lightning rods)",
       "Down conductors",
@@ -455,6 +467,7 @@ export const services: Service[] = [
     description:
       "We design and install Public Address (PA) systems for real-time emergency communication and evacuation guidance. Systems are integrated with fire alarm systems, offer zoning capabilities for targeted messaging, and comply with mass notification standards.",
     icon: "Radio",
+  image: "/images/services/fire-detection.jpg",
     features: [
       "Integrated with fire alarm systems",
       "Zoning capabilities for targeted messaging",
