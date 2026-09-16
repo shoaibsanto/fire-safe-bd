@@ -111,14 +111,14 @@ export const leadership = [
 ];
 
 export const partners = [
-  { name: "Simplex", country: "USA", description: "Advanced fire alarm and detection systems" },
-  { name: "Apollo Fire Detectors", country: "UK", description: "Leading fire detection and smoke detector manufacturer" },
+  { name: "ebitt", country: "International", description: "Fire protection and safety equipment" },
+  { name: "Cooper", country: "International", description: "Fire alarm and detection systems" },
   { name: "SRI", country: "Malaysia", description: "Fire protection products — valves, hydrants, extinguishers, sprinklers" },
-  { name: "C-TEC", country: "UK", description: "Fire alarm control panels and systems" },
-  { name: "Honeywell Notifier", country: "USA", description: "Intelligent fire alarm and building control systems" },
-  { name: "Quantum Pump System", country: "UK", description: "Engineered fire pump solutions, NFPA-20 compliant" },
-  { name: "Defender Fire Pump", country: "UK", description: "High-performance fire pump systems" },
-  { name: "Advanced", country: "UK", description: "Fire alarm system manufacturer" },
+  { name: "NAFFCO", country: "UAE", description: "Fire fighting equipment, vehicles and safety systems" },
+  { name: "Firetex", country: "International", description: "Fire suppression coatings and systems" },
+  { name: "Quantum Pump Systems", country: "UK", description: "Engineered fire pump solutions, NFPA-20 compliant" },
+  { name: "Matrix", country: "International", description: "Addressable fire alarm control panels" },
+  { name: "Potter", country: "USA", description: "Fire alarm and suppression control systems" },
 ];
 
 export const complianceStandards = [
