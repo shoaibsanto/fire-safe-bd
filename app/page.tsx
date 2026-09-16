@@ -20,32 +20,55 @@ export default function HomePage() {
   return (
     <>
       {/* ===================== HERO ===================== */}
-      <section className="relative overflow-hidden bg-navy-900 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-navy-900 via-fire-900/80 to-red-900 text-white">
+        {/* Fire background */}
         <div className="absolute inset-0 -z-10">
           <img
             src="/images/services/fire-pumps.jpg"
             alt=""
-            className="h-full w-full object-cover opacity-20"
+            className="h-full w-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/60 to-transparent" />
         </div>
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:py-28">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
-              <div className="mb-4 text-sm font-semibold uppercase tracking-widest text-fire-400">
-                Protecting Lives · Securing Tomorrows
+
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16 lg:py-20">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            {/* Left — tagline text */}
+            <div className="hidden lg:block lg:col-span-3">
+              <div className="rounded-xl bg-white/10 p-6 backdrop-blur-sm">
+                <div className="text-2xl font-bold italic leading-tight">
+                  Safety Today,<br />
+                  A Better<br />
+                  Tomorrow.
+                </div>
               </div>
-              <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            </div>
+
+            {/* Center — hero image */}
+            <div className="hidden lg:block lg:col-span-4">
+              <img
+                src="/images/services/fire-extinguishers.jpg"
+                alt="Fire Safe BD Team"
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+
+            {/* Right — content */}
+            <div className="lg:col-span-5 lg:text-right">
+              <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-fire-400">
+                PROTECTING LIVES · SECURING TOMORROWS
+              </div>
+              <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.8rem]">
                 Complete Fire Safety Solutions for a{" "}
                 <span className="text-fire-400">Safer Bangladesh</span>
               </h1>
-              <p className="mt-4 text-lg text-slate-300">
+              <p className="mt-4 text-base text-slate-300">
                 Design | Supply | Installation | Testing | Commissioning | Maintenance
               </p>
-              <p className="mt-2 text-slate-400">
+              <p className="mt-2 text-sm text-slate-400">
                 Trusted by leading businesses, industries, and institutions across Bangladesh.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-4 lg:justify-end">
                 <a
                   href="#services"
                   className="inline-flex items-center gap-2 rounded-md bg-fire-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-fire-700"
@@ -54,39 +77,38 @@ export default function HomePage() {
                 </a>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                 >
                   Contact Us
                 </a>
               </div>
-            </div>
-            <div className="hidden lg:block">
-              <img
-                src="/images/services/fire-extinguishers.jpg"
-                alt="Fire Safe BD Team"
-                className="rounded-2xl shadow-2xl"
-              />
-            </div>
-          </div>
-          {/* Certification badges */}
-          <div className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-8">
-            {["UL Certified", "FM Approved", "NFPA Compliant", "CE Certified", "ISO Standards"].map((cert) => (
-              <div key={cert} className="flex items-center gap-2 text-sm text-slate-300">
-                <CheckCircle2 className="h-5 w-5 text-fire-400" />
-                {cert}
+              {/* Certification badges */}
+              <div className="mt-8 flex flex-wrap items-center gap-4 lg:justify-end">
+                {[
+                  { label: "UL", sub: "Certified" },
+                  { label: "FM", sub: "Approved" },
+                  { label: "NFPA", sub: "Compliant" },
+                  { label: "CE", sub: "Certified" },
+                  { label: "ISO", sub: "Standards" },
+                ].map((cert) => (
+                  <div key={cert.label} className="flex h-14 w-14 flex-col items-center justify-center rounded-full border border-white/20 bg-white/5 text-center">
+                    <div className="text-xs font-bold text-white">{cert.label}</div>
+                    <div className="text-[8px] text-slate-400">{cert.sub}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ===================== TRUST / USP ===================== */}
-      <section className="bg-white py-12 shadow-sm">
+      <section className="bg-white py-10 shadow-sm">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {[
               { icon: Shield, title: "Quality Products", desc: "Globally recognized and certified brands" },
-              { icon: Users, title: "Experienced Team", desc: "Qualified engineers and certified professionals" },
+              { icon: Users, title: "Experienced Team", desc: "Qualified engineers & certified professionals" },
               { icon: HeadphonesIcon, title: "24/7 Support", desc: "Always here when you need us" },
               { icon: Wrench, title: "Tailor-Made Solutions", desc: "Customized for every project need" },
             ].map((item) => (
@@ -111,7 +133,8 @@ export default function HomePage() {
             <div>
               <div className="text-sm font-semibold uppercase tracking-widest text-fire-600">About Us</div>
               <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">
-                A Trusted Name in <span className="text-fire-600">Fire Protection & Life Safety</span>
+                A Trusted Name in{" "}
+                <span className="text-fire-600">Fire Protection & Life Safety</span>
               </h2>
               <p className="mt-5 leading-relaxed text-slate-600">
                 Fire Safe BD Ltd is a comprehensive fire safety service provider in Bangladesh, offering tailored, turnkey solutions for diverse industries and infrastructure.
@@ -129,10 +152,12 @@ export default function HomePage() {
                   { icon: Eye, label: "Our Vision", text: "A Fire-Safe Bangladesh" },
                   { icon: Heart, label: "Our Value", text: "Integrity · Quality · Commitment" },
                 ].map((v) => (
-                  <div key={v.label} className="text-center">
-                    <v.icon className="mx-auto h-6 w-6 text-fire-600" />
+                  <div key={v.label} className="flex flex-col items-center text-center">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-fire-50">
+                      <v.icon className="h-5 w-5 text-fire-600" />
+                    </div>
                     <div className="mt-2 text-xs font-semibold uppercase text-slate-400">{v.label}</div>
-                    <div className="mt-1 text-sm font-medium text-navy-900">{v.text}</div>
+                    <div className="mt-1 text-xs font-medium text-navy-900">{v.text}</div>
                   </div>
                 ))}
               </div>
@@ -140,9 +165,10 @@ export default function HomePage() {
             <div className="relative">
               <img
                 src="/images/services/fire-suppression.jpg"
-                alt="Fire Safe BD Ltd Office"
+                alt="Fire Safe BD Ltd"
                 className="rounded-2xl shadow-lg"
               />
+              {/* Overlay badge */}
               <div className="absolute -bottom-4 -left-4 rounded-xl bg-fire-600 p-5 text-white shadow-lg sm:-bottom-6 sm:-left-6">
                 <div className="text-3xl font-bold">10+</div>
                 <div className="text-sm">Years of Trust</div>
@@ -159,35 +185,33 @@ export default function HomePage() {
       {/* ===================== OUR SERVICES ===================== */}
       <section id="services" className="bg-slate-50 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="text-center">
+          <div>
             <div className="text-sm font-semibold uppercase tracking-widest text-fire-600">Our Services</div>
             <h2 className="mt-3 text-3xl font-bold text-navy-900 sm:text-4xl">End-to-End Fire Safety Solutions</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-slate-600">
+            <p className="mt-3 max-w-2xl text-slate-600">
               From design to maintenance — we cover all your fire safety and security needs.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {services.map((svc, i) => (
-              <div key={svc.title} className="group overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
-                <div className="relative h-40 overflow-hidden">
-                  <img src={svc.image} alt={svc.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  <div className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-fire-600 text-xs font-bold text-white">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
+          <div className="mt-10 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {services.map((svc) => (
+              <a
+                key={svc.title}
+                href="#"
+                className="group overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-navy-900">{svc.title}</h3>
-                  <p className="mt-1 text-sm text-slate-500 line-clamp-2">{svc.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {svc.items.slice(0, 3).map((item) => (
-                      <span key={item} className="rounded bg-fire-50 px-2 py-0.5 text-xs text-fire-700">{item}</span>
-                    ))}
-                    {svc.items.length > 3 && (
-                      <span className="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-500">+{svc.items.length - 3} more</span>
-                    )}
-                  </div>
+                <div className="p-3 text-center">
+                  <h3 className="text-xs font-semibold leading-tight text-navy-900 group-hover:text-fire-600">
+                    {svc.title}
+                  </h3>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -207,7 +231,7 @@ export default function HomePage() {
                 View Our Projects <ArrowRight className="h-4 w-4" />
               </a>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Commercial Buildings", img: "/images/services/fire-suppression.jpg" },
                 { label: "Industrial Facilities", img: "/images/services/fire-pumps.jpg" },
@@ -215,9 +239,15 @@ export default function HomePage() {
                 { label: "Hospitals & Healthcare", img: "/images/services/fire-detection.jpg" },
               ].map((proj) => (
                 <div key={proj.label} className="group relative overflow-hidden rounded-xl">
-                  <img src={proj.img} alt={proj.label} className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-sm font-semibold text-white">{proj.label}</div>
+                  <img
+                    src={proj.img}
+                    alt={proj.label}
+                    className="h-32 w-full object-cover transition-transform duration-300 group-hover:scale-105 sm:h-40"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/20 to-transparent" />
+                  <div className="absolute bottom-2 left-2 text-xs font-semibold text-white sm:text-sm">
+                    {proj.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -233,7 +263,7 @@ export default function HomePage() {
               <div className="text-sm font-semibold uppercase tracking-widest text-fire-600">Our Global Partners</div>
               <h2 className="mt-3 text-3xl font-bold text-navy-900">World-Class Brands. Trusted Solutions.</h2>
               <p className="mt-3 max-w-2xl text-slate-600">
-                We work with internationally renowned manufacturers to deliver high-quality fire safety products and technologies.
+                We work with internationally renowned manufacturers to deliver the highest quality fire safety products and technologies.
               </p>
             </div>
             <a href="#" className="hidden items-center gap-2 rounded-md border border-fire-200 px-4 py-2 text-sm font-medium text-fire-700 transition-colors hover:bg-fire-50 sm:flex">
@@ -242,9 +272,9 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-7">
             {partners.map((p) => (
-              <div key={p.name} className="flex flex-col items-center justify-center rounded-xl bg-white p-4 shadow-sm">
-                <div className="text-lg font-bold text-navy-900">{p.name}</div>
-                <div className="text-xs text-slate-400">{p.country}</div>
+              <div key={p.name} className="flex flex-col items-center justify-center rounded-xl bg-white p-4 shadow-sm transition hover:shadow-md">
+                <div className="text-base font-bold text-navy-900">{p.name}</div>
+                <div className="text-[10px] text-slate-400">{p.country}</div>
               </div>
             ))}
           </div>
@@ -273,7 +303,9 @@ export default function HomePage() {
                   { icon: Leaf, text: "Environmental Sustainability" },
                 ].map((item) => (
                   <div key={item.text} className="flex flex-col items-center text-center">
-                    <item.icon className="h-6 w-6 text-fire-600" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-fire-50">
+                      <item.icon className="h-5 w-5 text-fire-600" />
+                    </div>
                     <div className="mt-2 text-xs font-medium text-slate-600">{item.text}</div>
                   </div>
                 ))}
@@ -287,16 +319,19 @@ export default function HomePage() {
       </section>
 
       {/* ===================== FINAL CTA ===================== */}
-      <section id="contact" className="relative overflow-hidden bg-navy-900 text-white">
+      <section id="contact" className="relative overflow-hidden bg-gradient-to-r from-fire-900 via-fire-800 to-navy-900 text-white">
         <div className="absolute inset-0 -z-10">
           <img src="/images/services/fire-detection.jpg" alt="" className="h-full w-full object-cover opacity-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-900 to-fire-900/40" />
         </div>
         <div className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="text-sm font-semibold uppercase tracking-widest text-fire-400">Need a Reliable Fire Safety Partner?</div>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Let&apos;s Build a Safer Future Together</h2>
+              <div className="text-sm font-semibold uppercase tracking-widest text-fire-400">
+                Need a Reliable Fire Safety Partner?
+              </div>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Let&apos;s Build a Safer Future Together
+              </h2>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href="#" className="inline-flex items-center gap-2 rounded-md bg-fire-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-fire-700">
                   Get a Quote <ArrowRight className="h-4 w-4" />
