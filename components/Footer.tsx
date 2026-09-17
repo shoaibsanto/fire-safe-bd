@@ -23,10 +23,18 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-white">Quick Links</h4>
             <ul className="mt-3 space-y-2">
-              {["Home", "About Us", "Our Services", "Our Projects", "Partners", "CSR", "News", "Contact Us"].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, "-").replace("home", "")}`} className="text-sm text-slate-400 hover:text-white">
-                    {link}
+              {[
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "#about" },
+                { label: "Our Services", href: "#services" },
+                { label: "Our Projects", href: "#projects" },
+                { label: "Partners", href: "#partners" },
+                { label: "CSR", href: "#csr" },
+                { label: "Contact Us", href: "#contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-slate-400 hover:text-white">
+                    {link.label}
                   </a>
                 </li>
               ))}

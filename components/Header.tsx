@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navItems, siteConfig } from "@/lib/data";
 import { Menu, X, Phone, Mail, ChevronRight, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50">
@@ -33,7 +42,12 @@ export function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="bg-white shadow-md">
+      <div
+        className={cn(
+          "bg-white transition-shadow duration-300",
+          scrolled ? "shadow-md" : "shadow-sm"
+        )}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
@@ -59,7 +73,7 @@ export function Header() {
               href="#contact"
               className="flex items-center gap-2 rounded-md bg-fire-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-fire-700"
             >
-              Get a Quote
+              Request a Quote
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -96,7 +110,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-2 rounded-md bg-fire-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-fire-700"
             >
-              Get a Quote <ArrowRight className="h-4 w-4" />
+              Request a Quote <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
