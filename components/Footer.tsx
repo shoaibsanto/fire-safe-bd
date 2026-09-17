@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/data";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { FacebookIcon, LinkedinIcon, YoutubeIcon } from "@/components/SocialIcons";
+
+const socialLinks = [
+  { label: "Facebook", href: "#", icon: FacebookIcon },
+  { label: "LinkedIn", href: "#", icon: LinkedinIcon },
+  { label: "YouTube", href: "#", icon: YoutubeIcon },
+];
 
 export function Footer() {
   return (
@@ -59,15 +66,16 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-white">Connect With Us</h4>
             <div className="mt-3 flex gap-3">
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-fire-600">
-                Facebook
-              </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-fire-600">
-                LinkedIn
-              </a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-fire-600">
-                YouTube
-              </a>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-fire-600"
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
             <div className="mt-4 space-y-2 text-sm text-slate-400">
               <div className="flex items-center gap-2">
