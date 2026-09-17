@@ -216,8 +216,14 @@ export default function HomePage() {
 
       {/* ===================== SOLUTIONS / PROJECTS ===================== */}
       <section id="projects" className="bg-slate-50 py-24 lg:py-32">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-          <Reveal className="order-2 lg:order-none">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-16 lg:gap-y-4 lg:px-8">
+          <Reveal className="order-1 lg:order-none lg:col-start-2 lg:row-start-1">
+            <div className="text-sm font-bold uppercase tracking-widest text-fire-600">Fire Protection Solutions</div>
+            <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
+              Engineered Systems, Built for Every Risk
+            </h2>
+          </Reveal>
+          <Reveal delay={0.05} className="order-2 lg:order-none lg:col-start-1 lg:row-start-1 lg:row-span-2">
             <FramedImage
               src="/images/solutions-fire-protection.png"
               alt="Fire Safe BD fire pump system installed on-site, with fire protection use cases for commercial, industrial, residential, and healthcare facilities"
@@ -225,12 +231,8 @@ export default function HomePage() {
               className="aspect-[16/9] w-full"
             />
           </Reveal>
-          <Reveal delay={0.1} className="order-1 lg:order-none">
-            <div className="text-sm font-bold uppercase tracking-widest text-fire-600">Fire Protection Solutions</div>
-            <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
-              Engineered Systems, Built for Every Risk
-            </h2>
-            <p className="mt-4 leading-relaxed text-slate-600">
+          <Reveal delay={0.1} className="order-3 lg:order-none lg:col-start-2 lg:row-start-2">
+            <p className="leading-relaxed text-slate-600">
               We have successfully delivered fire safety solutions for residential, commercial,
               industrial, and government projects across Bangladesh — backed by internationally
               certified equipment and a team that manages every stage of the project.
