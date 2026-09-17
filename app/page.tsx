@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig, services, partners } from "@/lib/data";
 import { FramedImage } from "@/components/FramedImage";
@@ -8,7 +9,7 @@ import {
   ShieldCheck,
   Users,
   Headphones,
-  Wrench,
+  Building2,
   Target,
   Eye,
   Heart,
@@ -31,10 +32,10 @@ import {
 const heroCredentials = ["UL", "FM", "NFPA", "CE", "ISO"];
 
 const trustPoints = [
-  { icon: ShieldCheck, title: "Quality Products", desc: "Globally recognized and certified brands" },
-  { icon: Users, title: "Experienced Team", desc: "Qualified engineers & certified professionals" },
-  { icon: Headphones, title: "24/7 Support", desc: "Always here when you need us" },
-  { icon: Wrench, title: "Tailor-Made Solutions", desc: "Customized for every project need" },
+  { icon: ShieldCheck, label: "People Safety" },
+  { icon: Building2, label: "Property Protection" },
+  { icon: Leaf, label: "Safer Communities" },
+  { icon: Users, label: "A Stronger Bangladesh" },
 ];
 
 const homeServiceIcons = [Siren, Wind, Droplets, FireExtinguisher, Gauge, DoorClosed];
@@ -61,86 +62,111 @@ const whyChooseUs = [
   { icon: Headphones, title: "Nationwide Support", desc: "24/7 maintenance and troubleshooting across Bangladesh." },
 ];
 
+function HeroCopy() {
+  return (
+    <>
+      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-fire-600">
+        Protecting Lives · Securing Tomorrows
+      </div>
+      <h1 className="mt-4 text-4xl font-bold leading-tight text-navy-900 sm:text-5xl">
+        Complete Fire Safety Solutions for a{" "}
+        <span className="text-fire-600">Safer Bangladesh</span>
+      </h1>
+      <p className="mt-5 text-base font-medium text-slate-600">
+        Design · Supply · Installation · Testing · Commissioning · Maintenance
+      </p>
+      <p className="mt-2 text-base text-slate-500">
+        Trusted by leading businesses, industries, and institutions across Bangladesh.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-lg bg-fire-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm shadow-fire-600/20 transition-colors hover:bg-fire-700"
+        >
+          Request a Quote <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          href="#services"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:border-navy-300 hover:bg-slate-50"
+        >
+          Explore Our Solutions
+        </Link>
+      </div>
+      <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-100 pt-6">
+        <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          Certified Standards
+        </span>
+        {heroCredentials.map((cert) => (
+          <span key={cert} className="text-sm font-bold text-navy-700">
+            {cert}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function TrustRow({ align = "start" }: { align?: "start" | "end" }) {
+  return (
+    <div
+      className={`grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-10 ${
+        align === "end" ? "sm:justify-end" : ""
+      }`}
+    >
+      {trustPoints.map((item) => (
+        <div key={item.label} className="flex items-center gap-2.5">
+          <item.icon className="h-5 w-5 shrink-0 text-fire-600" strokeWidth={1.75} />
+          <span className="text-sm font-semibold text-navy-900">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
       {/* ===================== HERO ===================== */}
       <section className="relative overflow-hidden bg-white">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_80%_0%,theme(colors.fire.50),transparent)]" />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
-          <Reveal>
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-fire-600">
-              Protecting Lives · Securing Tomorrows
+        {/* Desktop: full-bleed photographic hero, image proportions preserved */}
+        <div className="relative hidden lg:block lg:aspect-[1672/941]">
+          <Image
+            src="/images/hero-fire-protection.png"
+            alt="Fire Safe BD rooftop installation with a fire hose cabinet, extinguisher, and fire pump against the city skyline"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col justify-center">
+            <div className="mx-auto w-full max-w-7xl px-8 xl:px-0">
+              <Reveal className="max-w-xl">
+                <HeroCopy />
+              </Reveal>
             </div>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-navy-900 sm:text-5xl">
-              Complete Fire Safety Solutions for a{" "}
-              <span className="text-fire-600">Safer Bangladesh</span>
-            </h1>
-            <p className="mt-5 text-base font-medium text-slate-600">
-              Design · Supply · Installation · Testing · Commissioning · Maintenance
-            </p>
-            <p className="mt-2 text-base text-slate-500">
-              Trusted by leading businesses, industries, and institutions across Bangladesh.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-fire-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm shadow-fire-600/20 transition-colors hover:bg-fire-700"
-              >
-                Request a Quote <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#services"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:border-navy-300 hover:bg-slate-50"
-              >
-                Explore Our Solutions
-              </Link>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-100 pt-6">
-              <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                Certified Standards
-              </span>
-              {heroCredentials.map((cert) => (
-                <span key={cert} className="text-sm font-bold text-navy-700">
-                  {cert}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.1} className="relative mt-12 lg:mt-0">
-            <FramedImage
-              src="/images/services/fire-extinguishers.jpg"
-              alt="Fire suppression cylinders installed in a commercial switch room"
-              objectPosition="50% 22%"
-              className="aspect-[16/7] w-full"
-              priority
-            />
-            <div className="absolute -bottom-6 left-4 rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-xl sm:left-8">
-              <div className="text-3xl font-bold">{stats[0].value}</div>
-              <div className="text-sm font-semibold text-slate-200">Years of Trust</div>
-              <div className="text-xs text-slate-400">Since {siteConfig.foundedYear}</div>
+          <div className="absolute bottom-[12%] left-[51%] rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-xl">
+            <div className="text-3xl font-bold">{stats[0].value}</div>
+            <div className="text-sm font-semibold text-slate-200">Years of Trust</div>
+            <div className="text-xs text-slate-400">Since {siteConfig.foundedYear}</div>
+          </div>
+
+          <div className="absolute inset-x-0 bottom-0 px-8 py-6 xl:px-0">
+            <div className="mx-auto max-w-7xl">
+              <TrustRow align="end" />
             </div>
+          </div>
+        </div>
+
+        {/* Mobile / tablet: simple text-only hero, no background photo */}
+        <div className="px-4 py-14 sm:px-6 lg:hidden">
+          <Reveal className="max-w-xl">
+            <HeroCopy />
           </Reveal>
         </div>
-      </section>
-
-      {/* ===================== TRUST / USP ===================== */}
-      <section className="border-y border-slate-100 bg-slate-50/60">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {trustPoints.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.05} className="flex items-start gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-fire-600 shadow-sm">
-                  <item.icon className="h-5 w-5" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy-900">{item.title}</h3>
-                  <p className="mt-0.5 text-sm text-slate-500">{item.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+        <div className="border-t border-slate-100 px-4 py-8 sm:px-6 lg:hidden">
+          <TrustRow />
         </div>
       </section>
 
