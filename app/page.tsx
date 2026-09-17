@@ -128,39 +128,56 @@ export default function HomePage() {
     <>
       {/* ===================== HERO ===================== */}
       <section className="relative overflow-hidden bg-white">
-        {/* Desktop: full-bleed photographic hero, image proportions preserved */}
-        <div className="relative hidden lg:block lg:aspect-[1672/941]">
+        {/* Desktop: full-bleed photographic hero, image fading to white on the left for text */}
+        <div className="relative hidden lg:block lg:min-h-[660px] xl:min-h-[720px]">
           <Image
-            src="/images/hero-fire-protection.png"
-            alt="Fire Safe BD rooftop installation with a fire hose cabinet, extinguisher, and fire pump against the city skyline"
+            src="/images/hero-background.png"
+            alt="Fire hose cabinet, extinguisher, and fire pump installed on a rooftop at sunset, overlooking the city skyline"
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[65%_35%]"
           />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,white_0%,white_38%,rgba(255,255,255,0.9)_50%,rgba(255,255,255,0)_66%)]" />
+
           <div className="absolute inset-0 flex flex-col justify-center">
-            <div className="mx-auto w-full max-w-7xl px-8 xl:px-0">
+            <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
               <Reveal className="max-w-xl">
                 <HeroCopy />
               </Reveal>
             </div>
           </div>
 
-          <div className="absolute bottom-[12%] left-[51%] rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-xl">
+          <div className="absolute bottom-[16%] left-[54%] rounded-2xl bg-navy-900 px-6 py-4 text-white shadow-xl lg:bottom-[15%] lg:left-[51%]">
             <div className="text-3xl font-bold">{stats[0].value}</div>
             <div className="text-sm font-semibold text-slate-200">Years of Trust</div>
             <div className="text-xs text-slate-400">Since {siteConfig.foundedYear}</div>
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 px-8 py-6 xl:px-0">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/80 to-transparent px-6 pb-6 pt-16 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <TrustRow align="end" />
             </div>
           </div>
         </div>
 
-        {/* Mobile / tablet: simple text-only hero, no background photo */}
-        <div className="px-4 py-14 sm:px-6 lg:hidden">
+        {/* Mobile / tablet: photo band on top (fading to white), text and trust row stacked below */}
+        <div className="relative aspect-[4/3] w-full sm:aspect-[16/10] md:aspect-[21/9] lg:hidden">
+          <Image
+            src="/images/hero-background.png"
+            alt="Fire hose cabinet, extinguisher, and fire pump installed on a rooftop at sunset, overlooking the city skyline"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[60%_45%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+          <div className="absolute bottom-3 right-4 rounded-xl bg-navy-900/95 px-4 py-3 text-white shadow-lg">
+            <div className="text-xl font-bold leading-none">{stats[0].value}</div>
+            <div className="text-[11px] font-semibold text-slate-200">Years of Trust</div>
+          </div>
+        </div>
+        <div className="px-4 pb-10 pt-7 sm:px-6 lg:hidden">
           <Reveal className="max-w-xl">
             <HeroCopy />
           </Reveal>
