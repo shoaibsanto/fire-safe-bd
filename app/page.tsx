@@ -78,26 +78,26 @@ function HeroCopy() {
       <p className="mt-2 text-base text-slate-500">
         Trusted by leading businesses, industries, and institutions across Bangladesh.
       </p>
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
         <Link
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-lg bg-fire-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm shadow-fire-600/20 transition-colors hover:bg-fire-700"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-fire-600 px-4 py-3.5 text-sm font-semibold text-white shadow-sm shadow-fire-600/20 transition-colors hover:bg-fire-700 sm:px-6"
         >
-          Request a Quote <ArrowRight className="h-4 w-4" />
+          Request a Quote <ArrowRight className="h-4 w-4 shrink-0" />
         </Link>
         <Link
           href="#services"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-6 py-3.5 text-sm font-semibold text-navy-900 transition-colors hover:border-navy-300 hover:bg-slate-50"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-4 py-3.5 text-center text-sm font-semibold text-navy-900 transition-colors hover:border-navy-300 hover:bg-slate-50 sm:px-6"
         >
           Explore Our Solutions
         </Link>
       </div>
-      <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-100 pt-6">
-        <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+      <div className="mt-10 flex items-center gap-x-3 overflow-x-auto border-t border-slate-100 pt-6 sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+        <span className="shrink-0 whitespace-nowrap text-xs font-semibold uppercase tracking-wide text-slate-400">
           Certified Standards
         </span>
         {heroCredentials.map((cert) => (
-          <span key={cert} className="text-sm font-bold text-navy-700">
+          <span key={cert} className="shrink-0 whitespace-nowrap text-sm font-bold text-navy-700">
             {cert}
           </span>
         ))}
@@ -161,26 +161,30 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile / tablet: photo band on top (fading to white), text and trust row stacked below */}
-        <div className="relative aspect-[4/3] w-full sm:aspect-[16/10] md:aspect-[21/9] lg:hidden">
-          <Image
-            src="/images/hero-background.png"
-            alt="Fire hose cabinet, extinguisher, and fire pump installed on a rooftop at sunset, overlooking the city skyline"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[60%_45%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-          <div className="absolute bottom-3 right-4 rounded-xl bg-navy-900/95 px-4 py-3 text-white shadow-lg">
+        {/* Mobile / tablet: photo as background, headline and copy overlaid directly on it */}
+        <div className="relative lg:hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/hero-background.png"
+              alt="Fire hose cabinet, extinguisher, and fire pump installed on a rooftop at sunset, overlooking the city skyline"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[55%_25%]"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0%,rgba(255,255,255,0.6)_32%,white_50%)]" />
+          </div>
+
+          <div className="absolute right-4 top-4 rounded-xl bg-navy-900/95 px-4 py-3 text-white shadow-lg sm:right-6 sm:top-6">
             <div className="text-xl font-bold leading-none">{stats[0].value}</div>
             <div className="text-[11px] font-semibold text-slate-200">Years of Trust</div>
           </div>
-        </div>
-        <div className="px-4 pb-10 pt-7 sm:px-6 lg:hidden">
-          <Reveal className="max-w-xl">
-            <HeroCopy />
-          </Reveal>
+
+          <div className="relative px-4 pb-10 pt-[210px] sm:px-6 sm:pt-[250px]">
+            <Reveal className="max-w-xl">
+              <HeroCopy />
+            </Reveal>
+          </div>
         </div>
         <div className="border-t border-slate-100 px-4 py-8 sm:px-6 lg:hidden">
           <TrustRow />
@@ -188,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== CORE SERVICES ===================== */}
-      <section id="services" className="py-20 lg:py-28">
+      <section id="services" className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
             <div className="text-sm font-bold uppercase tracking-widest text-fire-600">Our Services</div>
@@ -211,9 +215,9 @@ export default function HomePage() {
       </section>
 
       {/* ===================== SOLUTIONS / PROJECTS ===================== */}
-      <section id="projects" className="bg-slate-50 py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
-          <Reveal>
+      <section id="projects" className="bg-slate-50 py-24 lg:py-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+          <Reveal className="order-2 lg:order-none">
             <FramedImage
               src="/images/solutions-fire-protection.png"
               alt="Fire Safe BD fire pump system installed on-site, with fire protection use cases for commercial, industrial, residential, and healthcare facilities"
@@ -221,7 +225,7 @@ export default function HomePage() {
               className="aspect-[16/9] w-full"
             />
           </Reveal>
-          <Reveal delay={0.1} className="mt-10 lg:mt-0">
+          <Reveal delay={0.1} className="order-1 lg:order-none">
             <div className="text-sm font-bold uppercase tracking-widest text-fire-600">Fire Protection Solutions</div>
             <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
               Engineered Systems, Built for Every Risk
@@ -242,8 +246,8 @@ export default function HomePage() {
       </section>
 
       {/* ===================== ABOUT US ===================== */}
-      <section id="about" className="py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+      <section id="about" className="py-24 lg:py-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
           <Reveal>
             <div className="text-sm font-bold uppercase tracking-widest text-fire-600">About Us</div>
             <h2 className="mt-2 text-3xl font-bold text-navy-900 sm:text-4xl">
@@ -275,7 +279,7 @@ export default function HomePage() {
             </Link>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-12 lg:mt-0">
+          <Reveal delay={0.1}>
             <div className="rounded-3xl bg-navy-900 p-8 text-white shadow-xl sm:p-10">
               <div className="text-5xl font-bold text-fire-400">{stats[0].value}</div>
               <div className="mt-1 text-lg font-semibold">Years of Trust</div>
@@ -305,7 +309,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== STATS ===================== */}
-      <section className="bg-navy-900 py-14">
+      <section className="bg-navy-900 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {stats.map((s, i) => (
@@ -319,7 +323,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== WHY CHOOSE US ===================== */}
-      <section className="py-20 lg:py-28">
+      <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
             <div className="text-sm font-bold uppercase tracking-widest text-fire-600">Why Choose Us</div>
@@ -342,7 +346,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== GLOBAL PARTNERS ===================== */}
-      <section id="partners" className="bg-slate-50 py-20 lg:py-28">
+      <section id="partners" className="bg-slate-50 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -370,8 +374,8 @@ export default function HomePage() {
       </section>
 
       {/* ===================== CSR ===================== */}
-      <section id="csr" className="py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+      <section id="csr" className="py-24 lg:py-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
           <Reveal className="order-2 lg:order-1">
             <div className="rounded-3xl bg-gradient-to-br from-fire-600 to-fire-800 p-10 text-white shadow-xl">
               <Leaf className="h-10 w-10 text-fire-200" strokeWidth={1.5} />
@@ -383,7 +387,7 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.1} className="order-1 mb-10 lg:order-2 lg:mb-0">
+          <Reveal delay={0.1} className="order-1 lg:order-2">
             <div className="text-sm font-bold uppercase tracking-widest text-fire-600">
               Corporate Social Responsibility
             </div>
@@ -420,7 +424,7 @@ export default function HomePage() {
 
       {/* ===================== FINAL CTA ===================== */}
       <section id="contact" className="relative overflow-hidden bg-navy-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-20">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-20 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-24">
           <Reveal>
             <div className="text-sm font-bold uppercase tracking-widest text-fire-400">
               Need a Reliable Fire Safety Partner?
@@ -443,7 +447,7 @@ export default function HomePage() {
               </a>
             </div>
           </Reveal>
-          <Reveal delay={0.1} className="mt-10 space-y-4 text-sm lg:mt-0">
+          <Reveal delay={0.1} className="space-y-4 text-sm">
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 shrink-0 text-fire-400" />
               <div>
