@@ -25,7 +25,6 @@ import {
   Gauge,
   DoorClosed,
   ClipboardCheck,
-  Building2,
   HardHat,
 } from "lucide-react";
 
@@ -40,13 +39,6 @@ const trustPoints = [
 
 const homeServiceIcons = [Siren, Wind, Droplets, FireExtinguisher, Gauge, DoorClosed];
 const homeServices = services.slice(0, 6).map((svc, i) => ({ ...svc, icon: homeServiceIcons[i] }));
-
-const projectTypes = [
-  { icon: Building2, label: "Commercial Buildings" },
-  { icon: HardHat, label: "Industrial Facilities" },
-  { icon: ShieldCheck, label: "Residential Projects" },
-  { icon: Heart, label: "Hospitals & Healthcare" },
-];
 
 const aboutStrengths = [
   "Turnkey delivery — design through maintenance under one roof",
@@ -180,10 +172,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
           <Reveal>
             <FramedImage
-              src="/images/services/fire-suppression.jpg"
-              alt="Fire pump systems delivered for an industrial project"
-              objectPosition="50% 8%"
-              className="aspect-[21/9] w-full"
+              src="/images/solutions-fire-protection.png"
+              alt="Fire Safe BD fire pump system installed on-site, with fire protection use cases for commercial, industrial, residential, and healthcare facilities"
+              objectPosition="center"
+              className="aspect-[16/9] w-full"
             />
           </Reveal>
           <Reveal delay={0.1} className="mt-10 lg:mt-0">
@@ -196,16 +188,6 @@ export default function HomePage() {
               industrial, and government projects across Bangladesh — backed by internationally
               certified equipment and a team that manages every stage of the project.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-5">
-              {projectTypes.map((p) => (
-                <div key={p.label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-fire-50 text-fire-600">
-                    <p.icon className="h-5 w-5" strokeWidth={1.75} />
-                  </div>
-                  <span className="text-sm font-medium text-navy-900">{p.label}</span>
-                </div>
-              ))}
-            </div>
             <Link
               href="#contact"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-fire-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-fire-700"
